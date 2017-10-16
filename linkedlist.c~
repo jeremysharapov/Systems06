@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+  int i;
+  struct node *next;
+};
+
+void print_list(struct node *list) {
+  while(list){
+    printf("%d -> ", list -> i);
+    list = list -> next;
+  }
+  printf("NULL\n");
+}
+
+struct node *insert_front(struct node *old, int n) {
+    struct node *new = (struct node *)malloc(sizeof(struct node));
+    new -> next = old;
+    new -> i = n;
+    return new;
+}
+
